@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alifarjad2/FarawinChatS3UI.git"
+    "url": "git+https://github.com/alifarjad2/farawin.git"
   },
   "keywords": [
     "farawin"
@@ -16,7 +16,7 @@
   "author": "alifarjad",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/alifarjad2/FarawinChatS3UI/issues"
+    "url": "https://github.com/alifarjad2/farawin/issues"
   },
-  "homepage": "https://github.com/alifarjad2/FarawinChatS3UI#readme"
+  "homepage": "https://github.com/alifarjad2/farawin#readme"
 }
