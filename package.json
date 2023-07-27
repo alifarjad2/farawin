@@ -1,0 +1,22 @@
+{
+  "name": "farawin",
+  "version": "0.1.0",
+  "description": "farawin learning package",
+  "main": "index.js",
+  "scripts": {
+    "test": "test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alifarjad2/FarawinChatS3UI.git"
+  },
+  "keywords": [
+    "farawin"
+  ],
+  "author": "alifarjad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alifarjad2/FarawinChatS3UI/issues"
+  },
+  "homepage": "https://github.com/alifarjad2/FarawinChatS3UI#readme"
+}
