@@ -1,7 +1,7 @@
 {
   "name": "farawin",
-  "version": "0.1.0",
-  "description": "farawin learning package",
+  "version": "0.3.0",
+  "description": "کتابخانه فراوین. کتابخانه کوچک برای یادگیری کار با کتابخانه ها و استفاده از کدهای آماده آن",
   "main": "index.js",
   "scripts": {
     "test": "test.js"

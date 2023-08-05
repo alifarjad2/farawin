@@ -106,7 +106,7 @@ const farawin = {
   getChats: async (responseHandlerCallback) => {
     const result = await farawin.fetch("GET", "chat");
     responseHandlerCallback && responseHandlerCallback(result);
-    !responseHandlerCallback && alert(result?.message);
+    return result;
   },
 
   /**
@@ -121,7 +121,7 @@ const farawin = {
   getContactChats: async (username, responseHandlerCallback) => {
     const result = await farawin.fetch("GET", "chat/" + username);
     responseHandlerCallback && responseHandlerCallback(result);
-    !responseHandlerCallback && alert(result?.message);
+    return result;
   },
 
   /**
@@ -137,7 +137,7 @@ const farawin = {
     });
 
     responseHandlerCallback && responseHandlerCallback(result);
-    !responseHandlerCallback && alert(result?.message);
+    return result;
   },
 
   /**
@@ -153,7 +153,7 @@ const farawin = {
     });
 
     responseHandlerCallback && responseHandlerCallback(result);
-    !responseHandlerCallback && alert(result?.message);
+    return result;
   },
 
   /**
@@ -167,7 +167,7 @@ const farawin = {
     });
 
     responseHandlerCallback && responseHandlerCallback(result);
-    !responseHandlerCallback && alert(result?.message);
+    return result;
   },
 
   /**
@@ -183,7 +183,7 @@ const farawin = {
     });
 
     responseHandlerCallback && responseHandlerCallback(result);
-    !responseHandlerCallback && alert(result?.message);
+    return result;
   },
 
   /**
@@ -199,7 +199,7 @@ const farawin = {
     });
 
     responseHandlerCallback && responseHandlerCallback(result);
-    !responseHandlerCallback && alert(result?.message);
+    return result;
   },
 
   /**
@@ -207,13 +207,13 @@ const farawin = {
    * @param {string} username - موبایل گرفته شده از کاربر اعتبار سنجی یادتون نره
    * @param {responseHandlerCallback} responseHandlerCallback - یک تابع بفرستید تا جواب گرفته شده رو بررسی کنید و پیغام نمایش بدید
    */
-  testEditContact: async (username, responseHandlerCallback) => {
+  testDeleteContact: async (username, responseHandlerCallback) => {
     const result = await fetchFromApi("DELETE", "contact", {
       username,
     });
 
     responseHandlerCallback && responseHandlerCallback(result);
-    !responseHandlerCallback && alert(result?.message);
+    return result;
   },
 
   /**
@@ -266,7 +266,7 @@ const farawin = {
     if (result.token) localStorage.token = result.token;
 
     responseHandlerCallback && responseHandlerCallback(result);
-    !responseHandlerCallback && alert(result?.message);
+    return result;
   },
 
   /**
@@ -280,7 +280,7 @@ const farawin = {
   getContacts: async (responseHandlerCallback) => {
     const result = await farawin.fetch("GET", "contact");
     responseHandlerCallback && responseHandlerCallback(result);
-    !responseHandlerCallback && alert(result?.message);
+    return result;
   },
 
   /**
@@ -294,7 +294,7 @@ const farawin = {
   getUsers: async (responseHandlerCallback) => {
     const result = await farawin.fetch("GET", "user");
     responseHandlerCallback && responseHandlerCallback(result);
-    !responseHandlerCallback && alert(result?.message);
+    return result;
   },
 
   /**
@@ -343,11 +343,11 @@ const farawin = {
     const result = await fetchFromApi("POST", "user", {
       username,
       password,
-      name,
+      name: name || "farawin",
     });
 
     responseHandlerCallback && responseHandlerCallback(result);
-    !responseHandlerCallback && alert(result?.message);
+    return result;
   },
 
   //just for example
@@ -378,32 +378,32 @@ const farawin = {
         //   window.location.assign('url...')
       }
     );
+    farawin.testLogin2(),
+      //if your button is stop form default submit form
+      //event.preventDefault();
+      farawin.testLogin(
+        "موبایل گرفته شده از کاربر",
+        "پسورد گرفته شده از کاربر",
+        (response) => {
+          //response is object like {code: string, message: string}
+          //if code is '200' mean success
+          //else mean error!
+          //Goodluck:)
 
-    //if your button is stop form default submit form
-    //event.preventDefault();
-    farawin.testLogin(
-      "موبایل گرفته شده از کاربر",
-      "پسورد گرفته شده از کاربر",
-      (response) => {
-        //response is object like {code: string, message: string}
-        //if code is '200' mean success
-        //else mean error!
-        //Goodluck:)
+          const success = response.code == "200";
 
-        const success = response.code == "200";
+          if (success) console.log("result from api -> ", response);
+          else console.error("error from api -> ", response);
 
-        if (success) console.log("result from api -> ", response);
-        else console.error("error from api -> ", response);
+          //you response to get message
+          //like
+          alert(response.message);
 
-        //you response to get message
-        //like
-        alert(response.message);
-
-        //redirect if you want
-        // if(success)
-        //   window.location.assign('url...')
-      }
-    );
+          //redirect if you want
+          // if(success)
+          //   window.location.assign('url...')
+        }
+      );
   },
 
   fetch: fetchFromApi,
